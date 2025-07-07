@@ -940,6 +940,7 @@ dependencies = [
  "bytes",
  "grpc_client",
  "prost",
+ "tokio",
  "tonic",
  "tonic-build",
 ]
