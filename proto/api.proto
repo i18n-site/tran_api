@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package api;
+
+service Api {
+  rpc tran(Job) returns (stream TranResult);
+  rpc version(Void) returns (Version);
+}
+
+message Void {}
+
+message Version {
+  uint32 major = 1;
+  uint32 minor = 2;
+  uint32 patch = 3;
+}
+
+message Update
+{
+  /* 源文本的语言 */
+  uint32 from_lang = 1;
+  uint32 to_lang = 2;
+  bytes src_hash = 3;
+  string txt = 4;
+}
+
+message Tran
+{
+  uint32 from_lang = 1;
+  repeated uint32 to_lang_li = 2;
+  string txt = 3;
+  string path = 4;
+}
+
+message Job
+{
+  bytes token = 1;
+  repeated Update update_li = 2;
+  repeated Tran tran_li = 3;
+}
+
+message Traned 
+{
+  uint32 from_lang = 1;
+  uint32 to_lang = 2;
+  string txt = 3;
+  bytes src_hash = 4;
+  string path = 5;
+}
+
+enum ErrCode {
+  FEE = 0;
+  TRAN = 1;
+}
+
+message Err {
+  ErrCode code = 1;
+  bytes msg = 2;
+}
+
+message TranResult {
+  oneof kind {
+    Traned traned = 1 ;
+    Err err = 2;
+  };
+}
+

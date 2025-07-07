@@ -1,0 +1,16 @@
+[package]
+name = "tran_api"
+version = "0.1.1"
+edition = "2024"
+license = "MulanPSL-2.0"
+repository = "https://github.com/i18n-site/tran_api.git"
+homepage = "https://github.com/i18n-site/tran_api/tree/dev"
+description = "transalte api"
+
+
+[dependencies]
+prost = "0.13.5"
+tonic = "0.13.1"
+
+[build-dependencies]
+tonic-build = "0.13.1"
