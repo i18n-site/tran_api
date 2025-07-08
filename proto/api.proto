@@ -19,14 +19,14 @@ message Update
 {
   /* 源文本的语言 */
   uint32 from_lang = 1;
-  map <bytes, UpdateTxt> hash_txt = 2;
+  bytes src_hash = 2;
+  repeated LangTxt li = 3;
 }
 
-message UpdateTxt {
-  uint32 to_lang = 1;
+message LangTxt {
+  uint32 lang = 1;
   string txt = 2;
 }
-
 
 message Tran
 {
