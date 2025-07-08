@@ -3,7 +3,6 @@ use bytes::Bytes;
 use grpc_client::endpoint;
 use tonic::{
   Request, Status,
-  metadata::Ascii,
   transport::{Channel, Error},
 };
 
@@ -15,7 +14,9 @@ fn req_interceptor(mut req: Request<()>) -> Result<Request<()>, Status> {
   // meta.remove("user-agent");
   meta.insert(
     "t",
-    tonic::metadata::AsciiMetadataValue::from_key::<Ascii>("accept".parse().unwrap()),
+    tonic::metadata::AsciiMetadataValue::from_key::<tonic::metadata::Ascii>(
+      "11xvw".parse().unwrap(),
+    ),
   );
   Ok(req)
 }
