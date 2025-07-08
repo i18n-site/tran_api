@@ -3,7 +3,7 @@ use bytes::Bytes;
 use grpc_client::endpoint;
 use tonic::{
   Request, Status,
-  metadata::MetadataValue,
+  metadata::Ascii,
   transport::{Channel, Error},
 };
 
@@ -11,9 +11,12 @@ use crate::api_client::ApiClient;
 
 #[allow(clippy::result_large_err)]
 fn req_interceptor(mut req: Request<()>) -> Result<Request<()>, Status> {
-  req
-    .metadata_mut()
-    .insert("x", MetadataValue::from_static("1"));
+  let meta = req.metadata_mut();
+  // meta.remove("user-agent");
+  meta.insert(
+    "t",
+    tonic::metadata::AsciiMetadataValue::from_key::<Ascii>("accept".parse().unwrap()),
+  );
   Ok(req)
 }
 type Interceptor = fn(Request<()>) -> Result<Request<()>, Status>;
