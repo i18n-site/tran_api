@@ -3,7 +3,7 @@
 DIR=$(realpath $0) && DIR=${DIR%/*}
 cd $DIR
 set -ex
-
+rm -rf rustc-ice-*.txt
 touch Cargo.lock
 git add -u || true
 git commit -m. || true
