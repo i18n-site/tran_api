@@ -9,6 +9,7 @@ use tonic::{
 
 use crate::api_client::ApiClient;
 
+#[allow(clippy::result_large_err)]
 fn req_interceptor(mut req: Request<()>) -> Result<Request<()>, Status> {
   req
     .metadata_mut()
@@ -26,4 +27,3 @@ pub async fn conn(addr: impl Into<Bytes>) -> Result<ApiClientWithHeader, Error> 
 
   Ok(client)
 }
-
