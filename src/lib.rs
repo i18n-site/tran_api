@@ -8,7 +8,7 @@ use tonic::{
 
 use crate::api_client::ApiClient;
 
-pub fn req_interceptor(mut req: tonic::Request<()>) -> tonic::Result<tonic::Request<()>> {
+pub fn req_interceptor(mut req: tonic::Request<()>) -> Result<tonic::Request<()>, Error> {
   req
     .metadata_mut()
     .insert("Authorization", "XXXXXXXXXXXX".try_into().unwrap());
