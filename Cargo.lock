@@ -1066,8 +1066,10 @@ name = "tran_api"
 version = "0.1.4"
 dependencies = [
  "bytes",
+ "const-str",
  "genv",
  "grpc_client",
+ "http",
  "prost",
  "static_init",
  "tokio",
