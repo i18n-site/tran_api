@@ -17,10 +17,10 @@ message Version {
 
 message Update
 {
-  bytes src_hash = 1;
-  uint32 from_lang = 2;
-  uint32 to_lang = 3;
-  string txt = 4;
+  uint32 from_lang = 1;
+  uint32 to_lang = 2;
+  string txt = 3;
+  bytes src_hash = 4;
 }
 
 message Tran
