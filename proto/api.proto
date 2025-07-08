@@ -19,8 +19,8 @@ message Update
 {
   /* 源文本的语言 */
   uint32 from_lang = 1;
+  bytes src_hash = 2;
   uint32 to_lang = 2;
-  bytes src_hash = 3;
   string txt = 4;
 }
 
@@ -39,7 +39,7 @@ message Job
   repeated Tran tran_li = 3;
 }
 
-message Traned 
+message Traned
 {
   uint32 from_lang = 1;
   uint32 to_lang = 2;
