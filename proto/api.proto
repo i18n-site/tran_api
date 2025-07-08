@@ -18,7 +18,6 @@ message Version {
 message Update
 {
   bytes src_hash = 1;
-  /* 源文本的语言 */
   uint32 from_lang = 2;
   uint32 to_lang = 3;
   string txt = 4;
