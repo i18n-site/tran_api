@@ -13,7 +13,7 @@ type Interceptor = fn(Request<()>) -> Result<Request<()>, Status>;
 pub type ApiClientWithHeader =
   ApiClient<tonic::service::interceptor::InterceptedService<Channel, Interceptor>>;
 
-pub async fn conn(addr: impl Into<Bytes>) -> Result<ApiClientWithHeader, Error> {
+pub async fn conn(addr: impl Into<Bytes>) -> Result<ApiClient<Channel>, Error> {
   let channel = endpoint(addr)?;
 
   let client = ApiClient::connect(channel).await?;
