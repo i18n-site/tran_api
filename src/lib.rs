@@ -8,12 +8,6 @@ use tonic::{
 
 use crate::api_client::ApiClient;
 
-pub fn req_interceptor(mut req: tonic::Request<()>) -> Result<tonic::Request<()>, Error> {
-  req
-    .metadata_mut()
-    .insert("Authorization", "XXXXXXXXXXXX".try_into().unwrap());
-  Ok(req)
-}
 pub async fn conn(addr: impl Into<Bytes>) -> Result<ApiClient<Channel>, Error> {
   let channel = endpoint(addr)?;
 
