@@ -18,9 +18,8 @@ message Version {
 message Update
 {
   /* 源文本的语言 */
-  uint32 from_lang = 1;
-  bytes src_hash = 2;
-  repeated LangTxt li = 3;
+  bytes src_hash = 1;
+  repeated LangTxt li = 2;
 }
 
 message LangTxt {
