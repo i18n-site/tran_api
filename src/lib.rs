@@ -1,13 +1,8 @@
 tonic::include_proto!("api");
-use CompressionEncoding::Gzip;
 use bytes::Bytes;
 use grpc_client::endpoint;
 use tonic::{
-  Request, Response,
-  body::Body,
-  client::GrpcService,
-  codec::CompressionEncoding,
-  service::{Interceptor, interceptor::InterceptedService},
+  codec::CompressionEncoding::Gzip,
   transport::{Channel, Error},
 };
 
