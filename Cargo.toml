@@ -10,7 +10,8 @@ description = "transalte api"
 
 [features]
 conn = ["dep:bytes"]
-default = ["conn"]
+default = ["conn", "file_type"]
+file_type = []
 bin = ["conn", "dep:genv", "dep:static_init"]
 
 [dependencies]
@@ -30,3 +31,4 @@ tonic-build = "0.13.1"
 
 [package.metadata.cargo-machete]
 ignored = ["prost", "static_init"]
+
