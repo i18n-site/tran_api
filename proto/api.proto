@@ -15,12 +15,18 @@ message Version {
   uint32 patch = 3;
 }
 
+enum FileType {
+  MD = 1;
+  YML = 2;
+}
+
 message Update
 {
   uint32 from_lang = 1;
   uint32 to_lang = 2;
   string txt = 3;
   bytes src_hash = 4;
+  FileType file_type = 5;
 }
 
 message Tran
@@ -66,4 +72,3 @@ message TranResult {
     Err err = 2;
   };
 }
-
