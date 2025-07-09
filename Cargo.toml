@@ -1,6 +1,6 @@
 [package]
 name = "tran_api"
-version = "0.1.8"
+version = "0.1.9"
 edition = "2024"
 license = "MulanPSL-2.0"
 repository = "https://github.com/i18n-site/tran_api.git"
@@ -30,4 +30,3 @@ tonic-build = "0.13.1"
 
 [package.metadata.cargo-machete]
 ignored = ["prost", "static_init"]
-
