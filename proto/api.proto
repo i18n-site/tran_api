@@ -16,8 +16,8 @@ message Version {
 }
 
 enum FileType {
-  MD = 1;
-  YML = 2;
+  MD = 0;
+  YML = 1;
 }
 
 message Update
