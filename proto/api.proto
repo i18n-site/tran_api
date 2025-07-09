@@ -33,9 +33,8 @@ message Tran
 
 message Job
 {
-  bytes token = 1;
-  repeated Update update_li = 2;
-  repeated Tran tran_li = 3;
+  repeated Update update_li = 1;
+  repeated Tran tran_li = 2;
 }
 
 message Traned
