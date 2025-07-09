@@ -114,9 +114,9 @@ checksum = "613afe47fcd5fac7ccf1db93babcb082c5994d996f20b8b159f2ad1658eb5724"
 
 [[package]]
 name = "concat_array"
-version = "0.1.2"
+version = "0.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2a478a81be298884c5f95d6da8db7258fabe714a0746ca7be4422568bd75fa87"
+checksum = "3ca2eeb273745ff915095438d9c76f19aa1b2da5fac985e0cd6a56428684d3c4"
 
 [[package]]
 name = "const-str"

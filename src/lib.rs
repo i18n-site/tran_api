@@ -8,10 +8,10 @@ mod conn;
 #[cfg(feature = "conn")]
 pub use conn::conn;
 
-pub const EXT_YML: &[&str] = &["yml", "yaml"];
-pub const EXT_MD: &[&str] = &["md"];
+pub const EXT_YML: [&str; 2] = ["yml", "yaml"];
+pub const EXT_MD: [&str; 1] = ["md"];
 
-pub const EXT: &[&str] = concat_array!(EXT_YML, EXT_MD);
+pub const EXT: &[&str] = &concat_array!(EXT_YML, EXT_MD);
 
 #[cfg(feature = "file_type")]
 pub fn file_type(filename: impl AsRef<str>) -> FileType {
