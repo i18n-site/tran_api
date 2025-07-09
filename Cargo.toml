@@ -30,3 +30,4 @@ tonic-build = "0.13.1"
 
 [package.metadata.cargo-machete]
 ignored = ["prost", "static_init"]
+
