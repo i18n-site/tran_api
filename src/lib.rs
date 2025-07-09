@@ -2,7 +2,7 @@ tonic::include_proto!("api");
 
 use bytes::Bytes;
 use tonic::{
-  service::Interceptor,
+  service::{Interceptor, interceptor::InterceptedService},
   transport::{Channel, Endpoint, Error},
 };
 
@@ -11,7 +11,7 @@ use crate::api_client::ApiClient;
 pub async fn conn<F>(
   addr: impl Into<Bytes>,
   interceptor: F,
-) -> Result<ApiClient<tonic::service::interceptor::InterceptedService<Channel, F>>, Error>
+) -> Result<ApiClient<InterceptedService<Channel, F>>, Error>
 where
   F: Interceptor,
 {
