@@ -17,7 +17,6 @@ bin = ["conn", "dep:genv", "dep:static_init"]
 [dependencies]
 bytes = { version = "1.10.1", optional = true }
 genv = { version = "0.1.16", optional = true }
-prost = "0.13"
 static_init = { version = "1.0.4", optional = true }
 tokio = { version = "1.46.1", features = ["rt", "macros", "rt-multi-thread"] }
 tonic = { version = "0.13.1", default-features = false, features = [
@@ -25,10 +24,10 @@ tonic = { version = "0.13.1", default-features = false, features = [
   "codegen",
   "prost",
 ] }
+prost = "0.13"
 
 [build-dependencies]
 tonic-build = "0.13.1"
 
 [package.metadata.cargo-machete]
 ignored = ["prost", "static_init"]
-
