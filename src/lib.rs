@@ -1,16 +1,23 @@
 tonic::include_proto!("api");
 
+use concat_array::concat_array;
+
 #[cfg(feature = "conn")]
 mod conn;
 
 #[cfg(feature = "conn")]
 pub use conn::conn;
 
+pub const EXT_YML: &[&str] = &["yml", "yaml"];
+pub const EXT_MD: &[&str] = &["md"];
+
+pub const EXT: &[&str] = concat_array!(EXT_YML, EXT_MD);
+
 #[cfg(feature = "file_type")]
 pub fn file_type(filename: impl AsRef<str>) -> FileType {
   let filename = filename.as_ref();
   if let Some(ext) = filename.rsplit('.').next()
-    && ["yml", "yaml"].contains(&ext)
+    && EXT_YML.contains(&ext)
   {
     return FileType::Yml;
   }
