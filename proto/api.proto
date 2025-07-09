@@ -47,8 +47,12 @@ message Traned
 }
 
 enum ErrCode {
-  FEE = 0;
-  TRAN = 1;
+  // 令牌无效
+  TOKEN_INVALID = 0;
+  // 令牌欠费
+  TOKEN_OVERDRAW = 1;
+  // 内部错误
+  INTERNAL_ERROR = 2;
 }
 
 message Err {
