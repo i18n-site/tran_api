@@ -1,0 +1,34 @@
+[package]
+name = "tran_api"
+version = "0.1.25"
+edition = "2024"
+license = "MulanPSL-2.0"
+repository = "https://github.com/i18n-site/tran_api.git"
+homepage = "https://github.com/i18n-site/tran_api/tree/dev"
+description = "transalte api"
+
+
+[features]
+conn = ["dep:bytes"]
+default = ["conn", "file_type"]
+file_type = []
+bin = ["conn", "dep:genv", "dep:static_init"]
+
+[dependencies]
+bytes = { version = "1.10.1", optional = true }
+genv = { version = "0.1.16", optional = true }
+static_init = { version = "1.0.4", optional = true }
+tokio = { version = "1.46.1", features = ["rt", "macros", "rt-multi-thread"] }
+tonic = { version = "0.13.1", default-features = false, features = [
+  "channel",
+  "codegen",
+  "prost",
+] }
+prost = "0.13"
+concat_array = "0.1.3"
+
+[build-dependencies]
+tonic-build = "0.13.1"
+
+[package.metadata.cargo-machete]
+ignored = ["prost", "static_init"]
